@@ -57,6 +57,7 @@ public class RestApiTest {
     public void getNodeCPUAndMemory() {
         NodeMetricsList nodeMetricList = client.top().nodes().metrics();
 
+
         logger.info("==== Node Metrics  ====");
         nodeMetricList.getItems().forEach(nodeMetrics ->
                 logger.info("{}\tCPU: {}{}\tMemory: {}{}",
