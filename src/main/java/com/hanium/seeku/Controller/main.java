@@ -45,26 +45,32 @@ public class main {
     public String Namespace(){
         return "dashboard/cluster/Namespace";
     }
+
     @GetMapping("dashboard/cluster/nodes")
     public String Nodes(){
         return "dashboard/cluster/Nodes";
     }
+
     @GetMapping("dashboard/workloads/cron")
     public String Cron(){
         return "dashboard/workloads/Cron";
     }
+
     @GetMapping("dashboard/workloads/daemon")
     public String Daemon(){
         return "dashboard/workloads/Daemon";
     }
+
     @GetMapping("dashboard/workloads/pods")
     public String Pods(){
         return "dashboard/workloads/Pods";
     }
+
     @GetMapping("dashboard/workloads/replica")
     public String Replica(){
         return "dashboard/workloads/Replica";
     }
+
     @GetMapping("dashboard/workloads/stateful")
     public String Stateful(){
         return "dashboard/workloads/Stateful";

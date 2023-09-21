@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="ko">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
 
 <head>
     <meta charset="utf-8">
@@ -157,13 +157,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{dashboard/workloads/replica}">
+                            <a class="nav-link" th:href="@{/dashboard/workloads/replica}">
                                 <span data-feather="layers"></span>
                                 Replica Sets
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{dashboard/workloads/stateful}">
+                            <a class="nav-link" th:href="@{/dashboard/workloads/stateful}">
                                 <span data-feather="layers"></span>
                                 Stateful Sets
                             </a>
