@@ -1,4 +1,4 @@
 package com.hanium.seeku.Repository;
 
-public class ReplicasetRepository {
+public interface ReplicasetRepository {
 }
