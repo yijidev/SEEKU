@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -119,8 +119,8 @@
                 <h1 class="h2">CPU Usage(%)</h1>
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group me-2">
-                        <a href="Dashboard.html" class="btn btn-sm btn-outline-secondary">Seeku</a>
-                        <a href="Detection.html" class="btn btn-sm btn-outline-secondary">Alert</a>
+                        <a th:href="@{/}" class="btn btn-sm btn-outline-secondary">SeeKu</a>
+                        <a th:href="@{/alert/detection}" class="btn btn-sm btn-outline-secondary">Alert</a>
                     </div>
                 </div>
             </div>
@@ -210,7 +210,7 @@
             </style>
 
             <body>
-
+            <form th:action="@{/alert/detection/save}" method="post">
             <div>
                 <label>
                     Detection
@@ -237,6 +237,7 @@
             <div class="metric-input">
                 <button onclick="saveData()" style="background-color: #007bff; color: #fff;">Procced to Alert Signal</button>
             </div>
+            </form>
             <script>
                 function saveData() {
                     // 체크박스의 상태를 가져오고 필요한 작업을 수행합니다.
