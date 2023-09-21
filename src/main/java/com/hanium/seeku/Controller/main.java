@@ -75,4 +75,9 @@ public class main {
     public String Stateful(){
         return "dashboard/workloads/Stateful";
     }
+
+    @GetMapping("/alert/db")
+    public String DB(){
+        return "alert/DB";
+    }
 }
