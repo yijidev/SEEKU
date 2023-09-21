@@ -10,20 +10,22 @@ import java.io.Serializable;
 @Table(name="pod_usage")
 public class PodUsage implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pod_usage_seq")
+    @SequenceGenerator(name = "pod_usage_seq", sequenceName = "pod_usage_seq", allocationSize = 1)
     @Column
-    private long usedBookId;
+    private long podUsageId;
 
     @Column
-    private long cpuUsage;
+    private double cpuUsage;
 
     @Column
-    private long memoryUsage;
+    private double memoryUsage;
 
     @Column
-    private long processCpuUsage;
+    private double processCpuUsage;
 
     @Column
-    private long networkUsage;
+    private double networkUsage;
 
     @Column
     private String name;
