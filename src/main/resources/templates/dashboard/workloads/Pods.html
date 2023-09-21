@@ -146,50 +146,6 @@
 
             <!--<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
 
-            <canvas id="myChart" width="500" height="150"></canvas>
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-            <script>
-                function addZero(i) {
-                    var rtn = i + 100;
-                    return rtn.toString().substr(1, 3);
-                }
-
-                var monthList = [];
-                var monthData = [50,60,70,45,50,66];
-
-                var dt = new Date();
-                var year = dt.getFullYear();
-                var mon = addZero(eval(dt.getMonth()+1));
-                var now = year+mon;
-
-                for(var i = (now - 5); i <= now; i++){
-                    var format =  i;
-                    monthList.push(format);
-                }
-
-                const ctx = document.getElementById('myChart').getContext('2d');
-                const myChart = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: monthList,
-                        datasets: [{
-                            data: monthData,
-                            borderColor:'rgba(255, 99, 132, 1)',
-                            borderWidth: 1
-                        }]
-                    },
-
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: {
-                                display: false
-                            }
-                        }
-                    }
-                });
-            </script>
-
             <style>
                 body {
                     font-family: Arial, sans-serif;
@@ -231,30 +187,55 @@
             <table>
 
                 <thead>
-                <tr>
-                    <th>이름</th>
-                    <th>레이블</th>
-                    <th>파드</th>
-                    <th>생성시간</th>
-                    <th>이미지</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>dashboard-metrics-scraper-7b..</td>
-                    <td>k8-app:dashboard-metrics..</td>
-                    <td>1/1</td>
-                    <td>2분전</td>
-                    <td>kubernetesui/metrics-scraper:v1.0.4</td>
-
-                </tr>
-                <tr>
-                    <td>kubernetes-dashboard...</td>
-                    <td>pod-template-hsah...</td>
-                    <td>1/1</td>
-                    <td>2분전</td>
-                    <td>kubernetesui/dashboard:v..</td>
-                </tr>
+                    <tr>
+                        <th>이름</th>
+                        <th>이미지</th>
+                        <th>레이블</th>
+                        <th>노드</th>
+                        <th>상태</th>
+                        <th>재시작</th>
+                        <th>CPU 사용량(cores)</th>
+                        <th>메모리 사용량(bytes)</th>
+                        <th>생성 시간</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><a href="#">mariadb-client</a></td>
+                        <td>docker.io/bitnami/mariadb:11.0.3-debian-11-r5</td>
+                        <td>run: mariadb-client
+                        </td>
+                        <td>i-08b5529820bb50625</td>
+                        <td>Running</td>
+                        <td>0</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>2 days ago</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">mariadb-0</a></td>
+                        <td>docker.io/bitnami/mariadb:11.0.3-debian-11-r5</td>
+                        <td>app.kubernetes.io/component: primary<br>app.kubernetes.io/instance: mariadb<br>app.kubernetes.io/managed-by: Helm
+                        </td>
+                        <td>i-08b5529820bb50625</td>
+                        <td>Running</td>
+                        <td>0</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>16 days ago</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">mongodb-5dbd8697f9-fb7pd</a></td>
+                        <td>docker.io/bitnami/mongodb:6.0.9-debian-11-r5</td>
+                        <td>app.kubernetes.io/component: mongodb<br>app.kubernetes.io/instance: mongodb<br>app.kubernetes.io/managed-by: Helm
+                        </td>
+                        <td>i-08b5529820bb50625</td>
+                        <td>Running</td>
+                        <td>0</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>16 days ago</td>
+                    </tr>
                 <!-- 필요한 만큼 데이터 행을 추가하세요 -->
                 </tbody>
             </table>
