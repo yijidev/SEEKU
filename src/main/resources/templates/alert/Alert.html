@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -119,8 +119,8 @@
                 <h1 class="h2">CPU Usage(%)</h1>
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group me-2">
-                        <a href="Dashboard.html" class="btn btn-sm btn-outline-secondary">Seeku</a>
-                        <a href="Detection.html" class="btn btn-sm btn-outline-secondary">Alert</a>
+                        <a th:href="@{/}" class="btn btn-sm btn-outline-secondary">Seeku</a>
+                        <a th:href="@{/alert/detection" class="btn btn-sm btn-outline-secondary">Alert</a>
                     </div>
                 </div>
             </div>
