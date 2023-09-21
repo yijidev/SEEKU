@@ -24,6 +24,7 @@ public class PodUsageSave {
 
     @PostMapping("/alert/field/save")
     public String saveForm(@ModelAttribute PodUsage podUsage){
+        log.info("podUsage : " + podUsage.toString());
         log.info("Pod Usage information is saved");
         usageService.savePodUsageForm(podUsage);
         return "alert/Field";

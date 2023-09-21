@@ -210,7 +210,7 @@
             </style>
 
             <body>
-            <form action="/alert/field/save" method="POST">
+            <form th:action="@{/alert/field/save}" th:object="${podUsage}" method="post">
             <div>
                 <label>
                     Filed Comparison
@@ -244,8 +244,8 @@
             </div>
             <!--Name 입력 필드 -->
             <div class = "metric-input">
-            <label for="nameUsage">Name:</label>
-            <input type="text" id="nameUsage" name="nameUsage"><br>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br>
     </div>
             <script>
                 function 저장() {
