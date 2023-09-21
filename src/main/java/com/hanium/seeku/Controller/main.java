@@ -1,5 +1,6 @@
 package com.hanium.seeku.Controller;
 
+import com.hanium.seeku.Model.PodUsage;
 import com.hanium.seeku.Service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -39,6 +40,12 @@ public class main {
         model.addAttribute("daemonSet", DemonCnt);
         model.addAttribute("statefulSet", statefulCnt);
         model.addAttribute("pod", podCnt);
+
+        model.addAttribute("podUsage", new PodUsage());
+
+        model.addAttribute(
+                "podlist", deploymentsCnt
+        );
         return "DashBoard";
     }
     @GetMapping("dashboard/cluster/namespace")
