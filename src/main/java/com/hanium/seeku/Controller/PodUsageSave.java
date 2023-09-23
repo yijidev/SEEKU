@@ -1,8 +1,7 @@
 package com.hanium.seeku.Controller;
 
 import com.hanium.seeku.Model.PodUsage;
-import com.hanium.seeku.Repository.PodUsageRepository;
-import com.hanium.seeku.Service.UsageService;
+import com.hanium.seeku.Service.AlertService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -16,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping
 @RequiredArgsConstructor
 public class PodUsageSave {
-    private final UsageService usageService;
+    private final AlertService alertService;
     @GetMapping("/alert/field")
     public String newForm(){
         return "alert/Field";
@@ -24,9 +23,10 @@ public class PodUsageSave {
 
     @PostMapping("/alert/field/save")
     public String saveForm(@ModelAttribute PodUsage podUsage){
+        log.info("podUsage : " + podUsage.toString());
         log.info("Pod Usage information is saved");
-        usageService.savePodUsageForm(podUsage);
-        return "alert/Field";
+        alertService.savePodUsageForm(podUsage);
+        return "/alert/Threshold";
     }
 
 }

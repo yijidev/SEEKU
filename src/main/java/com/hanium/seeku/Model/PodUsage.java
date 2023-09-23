@@ -29,4 +29,16 @@ public class PodUsage implements Serializable {
 
     @Column
     private String name;
+
+    @Override
+    public String toString() {
+        return "PodUsage{" +
+                "podUsageId=" + podUsageId +
+                ", cpuUsage=" + cpuUsage +
+                ", memoryUsage=" + memoryUsage +
+                ", processCpuUsage=" + processCpuUsage +
+                ", networkUsage=" + networkUsage +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
