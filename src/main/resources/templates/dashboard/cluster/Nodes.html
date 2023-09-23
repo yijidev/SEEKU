@@ -36,6 +36,13 @@
             -moz-user-select: none;
             user-select: none;
         }
+        .label-text {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 200px;
+        display: inline-block;
+        }
 
         @media (min-width: 768px) {
             .bd-placeholder-img-lg {
@@ -296,53 +303,50 @@
 
 
                     <body>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>상세</th>
-                                    <th>이름</th>
-                                    <th>레이블</th>
-                                    <th>Ready</th>
-                                    <th>CPU 요청량</th>
-                                    <th>CPU 상한</th>
-                                    <th>생성 시간</th>
-                                </tr>
-                            </thead>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>상세</th>
+                            <th>이름</th>
+                            <th>레이블</th>
+                            <th>Ready</th>
+                            <th>CPU 용량</th>
+                            <th>메모리 용량</th>
+                            <th>생성 시간</th>
+                        </tr>
+                        </thead>
+                        <tbody>
 
-                            <!-- 필요한 만큼 데이터 행을 추가하세요 -->
-                            <tbody>
-                                <tr class="node-row">
-                                    <td>
-                                        <input type="checkbox" class="node-checkbox">
-                                    </td>
-                                    <td>minikube</td>
-                                    <td>beta.kuvernets.ifabric.io/ecternal</td>
-                                    <td>true</td>
-                                    <td>0.265(13.25%)</td>
-                                    <td>0.0(0.00%)</td>
-                                    <td>2 month</td>
-                                </tr>
-                                <tr class="node-details">
-                                    <td colspan="7">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td>이름: minikube</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>레이블: node.aplha.kubernetes.io/ttl:0/beta.kubernetes.io/os: linux
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>생성시간: 2023-7-29T13:22 UTC</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <script>
+                        <tr th:each="node : ${nodeList}">
+                            <td>
+                                <input type="checkbox" class="node-checkbox">
+                            </td>
+                            <td th:text="${node.name}"></td>
+                            <td>
+                                <span class="label-text" th:text="${node.labels}" onclick="showFullText(this)" onmouseleave="hideFullText(this)"></span>
+                            </td>
+                            <td th:text="${node.ready}"></td>
+                            <td th:text="${node.cpuCapacity}"></td>
+                            <td th:text="${node.memoryCapacity}"></td>
+                            <td th:text="${node.creationTime}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <script>
+                    function showFullText(element) {
+                    element.style.whiteSpace = 'normal';
+                    element.style.textOverflow = 'clip';
+                    element.style.maxWidth = 'none';
+                    }
+
+                    function hideFullText(element) {
+                        setTimeout(function() {
+                        element.style.whiteSpace = 'nowrap';
+                        element.style.textOverflow = 'ellipsis';
+                        element.style.maxWidth = '200px';
+                        }, 2000);
+                    }
                             document.addEventListener("DOMContentLoaded", function () {
                                 // 모든 노드 체크박스에 대한 이벤트 리스너 추가
                                 var nodeCheckboxes = document.querySelectorAll('.node-checkbox');

@@ -21,7 +21,7 @@ public class main {
 
     @GetMapping
     public String getDashboardItems(Model model){
-        int namespaceCnt = namespaceService.getNamespaceList();
+        int namespaceCnt = namespaceService.getNamespaceList().size();
         int deploymentsCnt = podService.getDeploymentsList().getItems().size();
         int podCnt = podService.getPodList().getItems().size();
         int replicaCnt = replicaService.getReplicaList().getItems().size();
@@ -48,15 +48,7 @@ public class main {
         );
         return "DashBoard";
     }
-    @GetMapping("dashboard/cluster/namespace")
-    public String Namespace(){
-        return "dashboard/cluster/Namespace";
-    }
 
-    @GetMapping("dashboard/cluster/nodes")
-    public String Nodes(){
-        return "dashboard/cluster/Nodes";
-    }
 
     @GetMapping("dashboard/workloads/cron")
     public String Cron(){
