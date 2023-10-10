@@ -74,4 +74,24 @@ public class main {
     public String Stateful(){
         return "dashboard/workloads/Stateful";
     }
+
+    @GetMapping("alert/db")
+    public String DB(){
+        return "alert/DB";
+    }
+
+    @GetMapping("alert/exclusion")
+    public String Exclusion(){
+        return "alert/Exclusion";
+    }
+
+    @GetMapping("alert/identical")
+    public String Identical(){
+        return "alert/Identical";
+    }
+
+    @GetMapping("alert/notification")
+    public String Alert_notification(){
+        return "alert/Alert";
+    }
 }

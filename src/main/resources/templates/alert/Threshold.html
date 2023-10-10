@@ -86,7 +86,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="DB.html">
+                        <a class="nav-link" th:href="@{/alert/db}">
                             <span data-feather="users"></span>
                             4. DB Comparison
                         </a>
@@ -120,8 +120,8 @@
                 <h1 class="h2">CPU Usage(%)</h1>
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group me-2">
-                        <a href="Dashboard.html" class="btn btn-sm btn-outline-secondary">Seeku</a>
-                        <a href="Detection.html" class="btn btn-sm btn-outline-secondary">Alert</a>
+                        <a th:href="@{/}" class="btn btn-sm btn-outline-secondary">SeeKu</a>
+                        <a th:href="@{/alert/detection}" class="btn btn-sm btn-outline-secondary">Alert</a>
                     </div>
                 </div>
             </div>
