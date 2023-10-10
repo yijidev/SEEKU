@@ -229,7 +229,6 @@
             </style>
             <body>
             <table>
-
                 <thead>
                 <tr>
                     <th>이름</th>
@@ -239,22 +238,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>kubernetes-dashboard</td>
-                    <td>beta.kubernetes.ifabric8.io/ecternal</td>
-                    <td>Active</td>
-                    <td>2week</td>
+                <tr th:each="namespaceData : ${namespaceList}">
+                    <td th:text="${namespaceData.name}"></td>
+                    <td th:text="${namespaceData.labels}"></td>
+                    <td th:text="${namespaceData.phase}"></td>
+                    <td th:text="${namespaceData.duration}"></td>
                 </tr>
-                <tr>
-                    <td>demo</td>
-                    <td>beta.kubernetes.ifabric8.io/ecternal</td>
-                    <td>Active</td>
-                    <td>1 month</td>
-                </tr>
-                <!-- 필요한 만큼 데이터 행을 추가하세요 -->
                 </tbody>
             </table>
-
 
             </body>
 
