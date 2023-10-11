@@ -153,26 +153,35 @@
                     return rtn.toString().substr(1, 3);
                 }
 
-                var monthList = [];
-                var monthData = [50,60,70,45,50,66];
+                var hourList = [];
+                var hourData = [50,60,70,45,50,66];
+                // var monthList = [];
+                // var monthData = [50,60,70,45,50,66];
 
                 var dt = new Date();
-                var year = dt.getFullYear();
-                var mon = addZero(eval(dt.getMonth()+1));
-                var now = year+mon;
+                var currentHour = dt.getHours();
+                // var year = dt.getFullYear();
+                // var mon = addZero(eval(dt.getMonth()+1));
+                // var now = year+mon;
 
-                for(var i = (now - 5); i <= now; i++){
-                    var format =  i;
-                    monthList.push(format);
+                for (var i = currentHour -5; i <= currentHour; i++) {
+                    var formattedHour = addZero(i % 24); // 시간을 0부터 23까지로 제한
+                    hourList.push(formattedHour + ":00");
                 }
+                // for(var i = (now - 5); i <= now; i++){
+                //     var format =  i;
+                //     monthList.push(format);
+                // }
 
                 const ctx = document.getElementById('myChart').getContext('2d');
                 const myChart = new Chart(ctx, {
                     type: 'line',
                     data: {
-                        labels: monthList,
+                        labels: hourList,
+                        // labels: monthList,
                         datasets: [{
-                            data: monthData,
+                            data: hourData,
+                            // data: monthData,
                             borderColor:'rgba(255, 99, 132, 1)',
                             borderWidth: 1
                         }]
