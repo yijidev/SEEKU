@@ -26,7 +26,7 @@ public class PodUsageSave {
         log.info("podUsage : " + podUsage.toString());
         log.info("Pod Usage information is saved");
         alertService.savePodUsageForm(podUsage);
-        return "/alert/Threshold";
+        return "alert/Threshold";
     }
 
 }
