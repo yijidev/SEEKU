@@ -75,6 +75,11 @@ public class main {
         return "dashboard/workloads/Stateful";
     }
 
+    @GetMapping("alert/threshold")
+    public String threshold(){
+        return "alert/threshold";
+    }
+
     @GetMapping("alert/db")
     public String DB(){
         return "alert/DB";
