@@ -77,7 +77,7 @@ public class main {
 
     @GetMapping("alert/threshold")
     public String threshold(){
-        return "alert/threshold";
+        return "alert/Threshold";
     }
 
     @GetMapping("alert/db")
