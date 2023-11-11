@@ -46,7 +46,7 @@ public class main {
         model.addAttribute(
                 "podlist", deploymentsCnt
         );
-        return "DashBoard";
+        return "Dashboard";
     }
 
 
