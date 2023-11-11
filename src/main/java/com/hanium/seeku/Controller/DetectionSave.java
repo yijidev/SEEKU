@@ -17,6 +17,6 @@ public class DetectionSave {
 
     @PostMapping("/alert/detection/save")
     public String saveForm() {
-        return "redirect:/alert/field";
+        return "redirect:alert/Field";
     }
 }
