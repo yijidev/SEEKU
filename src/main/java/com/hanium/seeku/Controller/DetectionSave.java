@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 public class DetectionSave {
     @GetMapping("/alert/detection")
-    public String newForm() { return "alert/detection"; }
+    public String newForm() { return "alert/Detection"; }
 
     @PostMapping("/alert/detection/save")
     public String saveForm() {
-        return "redirect:/alert/field";
+        return "redirect:alert/Field";
     }
 }
