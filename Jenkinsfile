@@ -38,3 +38,4 @@ node {
             sh "rm output.yaml"
         }
     }
+}
