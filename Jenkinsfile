@@ -5,7 +5,7 @@ K8S_NAMESPACE='default'
 K8S_JENKINS_CREDENTIAL_ID='kubectl-deploy-credentials'
 ECR_PATH = '136358990289.dkr.ecr.us-east-2.amazonaws.com'
 ECR_IMAGE = 'demo'
-AWS_CREDENTIAL_ID = 'aws-credentials'
+AWS_CREDENTIAL_ID = 'AKIAR7P5BCHITDQLYQ4V'
 
 node {
     stage('Clone Repository'){
@@ -33,7 +33,7 @@ node {
                         serverUrl: "${K8S_API}",
                         clusterName: "${K8S_CLUSTER_NAME}"]){
             sh "sed 's/IMAGE_VERSION/${env.BUILD_ID}/g' service.yaml > output.yaml"
-            sh "aws K8S --region ${REGION} update-kubeconfig --name ${K8S_CLUSTER_NAME}"
+            sh "aws kops --region ${REGION} update-kubeconfig --name ${K8S_CLUSTER_NAME}"
             sh "kubectl apply -f output.yaml"
             sh "rm output.yaml"
         }
